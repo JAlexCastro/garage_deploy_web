@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Garage_UI.Site" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Garage Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: #222;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header img {
+            height: 50px;
+        }
+
+        .nav-bar {
+            background-color: #444;
+
+            padding: 10px 0;
+        }
+
+        .nav-bar ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-bar ul li {
+            margin: 0 15px;
+        }
+
+        .nav-bar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-bar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            padding: 20px;
+            min-height: 80vh;
+        }
+
+        .footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Encabezado -->
+        <div class="header">
+            <img src="img/logo.png" alt="Garage Logo" />
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="nav-bar">
+            <asp:Menu ID="NavigationMenu" runat="server" 
+                      DataSourceID="SiteMapDataSource1" 
+                      Orientation="Horizontal" 
+                      StaticDisplayLevels="2"
+                      CssClass="menu"
+                      StaticMenuItemStyle-ForeColor="White"
+                      StaticMenuItemStyle-HorizontalPadding="10"
+                      StaticMenuItemStyle-VerticalPadding="5" />
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+
+        <!-- Pie de página -->
+        <div class="footer">
+            © 2025 Garage Eventos. Todos los derechos reservados.
+        </div>
+    </form>
+</body>
+</html>
